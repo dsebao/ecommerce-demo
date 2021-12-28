@@ -1,4 +1,5 @@
 import CartItem from "./CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = ({classPanel, cart, onEmptyCart}) => {
   const cartStatus = cart.total_unique_items > 0 ? true: false;
@@ -29,7 +30,7 @@ const Cart = ({classPanel, cart, onEmptyCart}) => {
           </div>
           <div className="flex justify-between">
             <button onClick={onEmptyCart} className="mt-2 mr-2 border border-1 border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white py-2 px-5 rounded-md p-3">Empty cart</button>
-            <button className="mt-2 bg-yellow-400 text-gray-900 hover:bg-yellow-400 py-2 px-5 rounded-md p-3">Checkout</button>
+            <Link to="/checkout" className="mt-2 bg-yellow-400 text-gray-900 hover:bg-yellow-400 py-2 px-5 rounded-md p-3">Checkout</Link>
           </div>
         </>
       }
