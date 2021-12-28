@@ -19,8 +19,12 @@ const App = () => {
 
   const handleAddToCart = async (productId, quantity) => {
     const item = await commerce.cart.add(productId, quantity);
-
     setCart(item.cart)
+  }
+
+  const handleEmptyCart = async () => {
+    const items = await commerce.cart.empty();
+    setCart(items.cart)
   }
 
   useEffect(() => {
@@ -30,8 +34,8 @@ const App = () => {
 
   return (
     <div>
-      <Navbar cart={cart} totalItems={cart.total_items}/>
-      <Products products={products} onAddToCart={handleAddToCart}/>
+      <Navbar cart={ cart } totalItems={ cart.total_items } onEmptyCart={ handleEmptyCart }/>
+      <Products products={ products } onAddToCart={ handleAddToCart }/>
     </div>
   )
 }
