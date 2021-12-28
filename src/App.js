@@ -44,7 +44,7 @@ const App = () => {
       <Navbar cart={ cart } totalItems={ cart.total_items } onEmptyCart={ handleEmptyCart }/>
         <Routes>
           <Route path="/" element={<Products products={ products } onAddToCart={ handleAddToCart }/>} />
-          <Route path="checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout cart={ cart } />} />
         </Routes>
       </BrowserRouter>
       
