@@ -19,9 +19,7 @@ const Navbar = ({cart, totalItems, onEmptyCart}) => {
           <span className="ml-3 text-xl">MusikStore</span>
         </a>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 hover:text-gray-900">Link</a>
-          <a className="mr-5 hover:text-gray-900">Link</a>
-          <a className="mr-5 hover:text-gray-900">Link</a>
+          {/* <a className="mr-5 hover:text-gray-900">Link</a> */}
         </nav>
         <div className="relative">
           <button onClick={openCartPanel} className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">

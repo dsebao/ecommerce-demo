@@ -3,7 +3,7 @@ const Product = ({product, onAddToCart}) => {
 
   return (
     <div className="product rounded-lg shadow-md hover:shadow-lg overflow-hidden">
-      <img className="w-full object-cover aspect-video" src={product.image.url} title={product.name}/>
+      <img className="w-full object-cover aspect-video" src={product.image.url} alt={product.name}/>
       <div className="p-8">
         <h3 className="text-xl font-normal">{ product.name }</h3>
         <div className="price font-extrabold text-lg my-3">{ product.price.formatted_with_symbol}</div>
