@@ -24,7 +24,7 @@ const AddressForm = () => {
 
           <input type="text" className={styles} {...register("zip")} placeholder="ZIP / Postal Code"/>
 
-          <button type="submit" className="mt-2 bg-purple-900 text-white hover:bg-purple-800 py-2 px-5 rounded-md p-3">Next</button>
+          <button type="submit" className="mt-2 bg-purple-900 text-white hover:bg-purple-800 py-2 px-5 rounded-md p-3">Save shipping information</button>
         </form>
     </div>
   )

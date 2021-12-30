@@ -31,7 +31,7 @@ const Checkout = ({cart}) => {
   }
 
   return (
-    <div className="py-6 container mx-auto">
+    <div className="py-6 container mx-auto mb-24">
       <h1 className="text-purple-800 text-center text-3xl mb-8">Checkout</h1>
 
       { !cartStatus &&
@@ -51,7 +51,7 @@ const Checkout = ({cart}) => {
         <div className="w-1/2">
           {cartStatus && 
             <div>
-                <h3 className="text-xl my-5">Items Summary</h3>
+                <h3 className="text-xl my-5">Your order</h3>
                 { checkoutToken && checkoutToken.live.line_items.map((product) => (
                   <CartItem key={product.id} product={ product }/>
                 )) }

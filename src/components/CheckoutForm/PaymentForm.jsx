@@ -16,7 +16,7 @@ const PaymentForm = ({checkoutToken}) => {
               <br></br>
               <div>
               <button type="submit" className="mt-2 bg-purple-900 text-white hover:bg-purple-800 py-2 px-5 rounded-md p-3" disabled={!stripe}>
-                Pay
+                Place order
               </button>
               </div>
             </form>
