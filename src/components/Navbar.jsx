@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import Cart from './Cart';
+import CartIcon from '../icons/cart.svg';
 
 const Navbar = ({cart, totalItems, onEmptyCart}) => {
   const [openPanel, setOpenPanel] = useState(false);
@@ -23,7 +24,7 @@ const Navbar = ({cart, totalItems, onEmptyCart}) => {
         </nav>
         <div className="relative">
           <button onClick={openCartPanel} className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-          My Cart
+          <img src={CartIcon} className='mr-1'/>My Cart
           <span className="rounded-xl bg-purple-700 text-white ml-1 text-sm h-5 w-5 inline-block">{ totalItems }</span></button>
 
           <Cart classPanel={ classPanel } cart={ cart } onEmptyCart={ onEmptyCart }/>
