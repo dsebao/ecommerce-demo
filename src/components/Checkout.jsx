@@ -51,7 +51,7 @@ const Checkout = ({cart}) => {
         <div className="w-1/2">
           {cartStatus && 
             <div>
-                <h3 className="text-xl my-5">Summary</h3>
+                <h3 className="text-xl my-5">Items Summary</h3>
                 { checkoutToken && checkoutToken.live.line_items.map((product) => (
                   <CartItem key={product.id} product={ product }/>
                 )) }
