@@ -31,34 +31,42 @@ const Checkout = ({cart}) => {
   }
 
   return (
-    <div className="py-6 max-w-md mx-auto">
+    <div className="py-6 container mx-auto">
       <h1 className="text-purple-800 text-center text-3xl mb-8">Checkout</h1>
 
       { !cartStatus &&
-        <p className="cart__none text-md my-4">
+        <p className="cart__none text-md my-4 text-center">
           You have no items in your shopping cart, start adding some!
         </p>
       }
 
-      {cartStatus && 
-        <div>
-            { checkoutToken && checkoutToken.live.line_items.map((product) => (
-              <CartItem key={product.id} product={ product }/>
-            )) }
-
-          <hr className="mb-3"/>
-
-          <div className="cart__total">
-            <p className="cart__total-title">Subtotal:</p>
-            <p className="cart__total-price font-bold text-xl">{cart.subtotal.formatted_with_symbol}</p>
-          </div>
-          
-          <AddressForm/>
-
-          <PaymentForm checkoutToken={checkoutToken}/>
-
+      <div className="flex gap-24">
+        <div className="w-1/2">
+          {cartStatus && 
+            <>
+              <AddressForm/>
+            </>
+          }
         </div>
-      }
+        <div className="w-1/2">
+          {cartStatus && 
+            <div>
+                <h3 className="text-xl my-5">Summary</h3>
+                { checkoutToken && checkoutToken.live.line_items.map((product) => (
+                  <CartItem key={product.id} product={ product }/>
+                )) }
+
+              <div className="cart__total bg-sky-50 p-5 rounded-md border border-1 border-blue-100">
+                <p className="cart__total-title">Subtotal:</p>
+                <p className="cart__total-price font-bold text-xl">{cart.subtotal.formatted_with_symbol}</p>
+              </div>
+
+              <PaymentForm checkoutToken={checkoutToken}/>
+
+            </div>
+          }
+        </div>
+      </div>
     </div>
   )
 }

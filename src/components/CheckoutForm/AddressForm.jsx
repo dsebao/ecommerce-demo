@@ -9,7 +9,6 @@ const AddressForm = () => {
 
   return (
     <div>
-      <hr className="mt-5"/>
       <h3 className="text-xl my-5">Shipping Address</h3>
       <hr />
         <form onSubmit={handleSubmit(onSubmit)}>
