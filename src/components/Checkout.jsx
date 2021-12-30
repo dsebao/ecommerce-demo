@@ -7,24 +7,22 @@ import { commerce } from "../lib/commerce";
 
 const Checkout = ({cart}) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
-
   const cartStatus = cart.total_unique_items > 0 ? true: false;
 
   useEffect(() => {
     const generateToken = async () => {
       try {
-        const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
-
-        console.log(token);
-
-        setCheckoutToken(token);
+        if(cart.id) {
+          const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
+          setCheckoutToken(token);
+        }
       } catch(error) {
-
+        console.log(error);
       }
     }
 
     generateToken();
-  },[])
+  },[cartStatus])
 
   const Confirmation = () => {
     <div>
@@ -44,11 +42,9 @@ const Checkout = ({cart}) => {
 
       {cartStatus && 
         <div>
-          {cart.total_items > 0 && 
-            cart.line_items.map((product) => (
+            { checkoutToken && checkoutToken.live.line_items.map((product) => (
               <CartItem key={product.id} product={ product }/>
-            ))
-          }
+            )) }
 
           <hr className="mb-3"/>
 
@@ -59,7 +55,7 @@ const Checkout = ({cart}) => {
           
           <AddressForm/>
 
-          <PaymentForm/>
+          <PaymentForm checkoutToken={checkoutToken}/>
 
         </div>
       }

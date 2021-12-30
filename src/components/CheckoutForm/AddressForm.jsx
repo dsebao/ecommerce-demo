@@ -13,19 +13,19 @@ const AddressForm = () => {
       <h3 className="text-xl my-5">Shipping Address</h3>
       <hr />
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input type="text" className={styles} {...register("firstName")} placeholder="First Name" />
+          <input type="text" className={styles} {...register("firstName")} placeholder="First Name" required/>
 
-          <input type="text" className={styles} {...register("lastName")} placeholder="Last Name"/>
+          <input type="text" className={styles} {...register("lastName")} placeholder="Last Name" required/>
 
-          <input type="text" className={styles} {...register("address1")} placeholder="Address"/>
+          <input type="text" className={styles} {...register("address1")} placeholder="Address" required/>
 
-          <input type="email" className={styles} {...register("email")} placeholder="Email"/>
+          <input type="email" className={styles} {...register("email")} placeholder="Email" required/>
 
           <input type="text" className={styles} {...register("city")} placeholder="City"/>
 
           <input type="text" className={styles} {...register("zip")} placeholder="ZIP / Postal Code"/>
 
-          <input type="submit" className="mt-2 bg-yellow-400 text-gray-900 hover:bg-yellow-400 py-2 px-5 rounded-md p-3" />
+          <button type="submit" className="mt-2 bg-purple-900 text-white hover:bg-purple-800 py-2 px-5 rounded-md p-3">Next</button>
         </form>
     </div>
   )
